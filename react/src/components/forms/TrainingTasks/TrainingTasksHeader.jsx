@@ -1,6 +1,6 @@
 import FormHeaderTitle from "../../shared/FormHeaderTitle";
 
-const RegularTasksHeader = () => {
+const TrainingTasksHeader = () => {
   return (
     <div className="grid items-center grid-cols-7 gap-2 mb-4">
       <FormHeaderTitle
@@ -25,4 +25,4 @@ const RegularTasksHeader = () => {
   );
 };
 
-export default RegularTasksHeader;
+export default TrainingTasksHeader;

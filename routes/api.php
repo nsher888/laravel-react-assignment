@@ -4,23 +4,11 @@ use App\Http\Controllers\ProjectDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(ProjectDataController::class)->group(function () {
+    Route::post('/project-data', 'store');
+    Route::get('/project-data', 'index');
+    Route::delete('/project-data/{id}', 'destroy');
+    Route::get('/project-data/{id}', 'show');
+    Route::put('/project-data/{id}', 'update');
 });
-
-Route::post('/project-data', [ProjectDataController::class, 'store']);
-Route::get('/project-data', [ProjectDataController::class, 'index']);
-Route::delete('/project-data/{id}', [ProjectDataController::class, 'destroy']);
-Route::get('/project-data/{id}', [ProjectDataController::class, 'show']);
-

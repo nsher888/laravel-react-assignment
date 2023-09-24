@@ -9,7 +9,6 @@ const StatisticsForm = ({ control, register }) => {
     name: "statistics",
     control,
   });
-
   return (
     <>
       <div className="flex items-center justify-between gap-6 mb-6">
@@ -26,9 +25,7 @@ const StatisticsForm = ({ control, register }) => {
           ახალი რიგის დამატება
         </button>
       </div>
-
       <StatisticsHeader />
-
       {fields.map((field, index) => {
         return (
           <div
@@ -92,7 +89,6 @@ const StatisticsForm = ({ control, register }) => {
           </div>
         );
       })}
-
       <Divider />
     </>
   );
@@ -101,6 +97,7 @@ const StatisticsForm = ({ control, register }) => {
 StatisticsForm.propTypes = {
   control: PropTypes.object.isRequired,
   register: PropTypes.func.isRequired,
+  initialRows: PropTypes.number,
 };
 
 export default StatisticsForm;

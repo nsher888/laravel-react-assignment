@@ -1,33 +1,9 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import useListPage from "../../hooks/useListPage";
 
 const ListPage = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios.get("http://localhost:8000/api/project-data").then((res) => {
-      setData(res.data);
-      setLoading(false);
-    });
-  }, []);
-
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:8000/api/project-data/${id}`)
-      .then((response) => {
-        if (response.status === 200) {
-          setData((prevData) => prevData.filter((item) => item.id !== id));
-          toast.success(response.data.message);
-        }
-      })
-      .catch((error) => {
-        console.error("Error deleting record:", error);
-        toast.error("შეცდომა");
-      });
-  };
+  const { data, loading, handleDelete } = useListPage();
 
   return (
     <div className="min-h-screen bg-gray-300">

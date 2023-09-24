@@ -100,6 +100,7 @@ const ProjectTasks = ({ control, register }) => {
 ProjectTasks.propTypes = {
   control: PropTypes.object.isRequired,
   register: PropTypes.func.isRequired,
+  initialRows: PropTypes.number,
 };
 
 export default ProjectTasks;
